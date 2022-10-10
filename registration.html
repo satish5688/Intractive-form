@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registation</title>
+    <style>
+        form{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid black;
+            padding: 20px 60px;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+        input[type=submit]{
+            margin-right: 20px;
+            background-color: chartreuse;
+        }
+        input[type=reset]{
+         background-color: tomato;
+         outline: none;   
+         margin-right: 20px;
+        }
+        input[type=reset]:hover{    
+            background-color: brown;
+        }
+        input[type=submit]:hover{
+            border-color: lightgreen;
+        }
+
+    </style>
+   
+</head>
+<body>
+    <form onsubmit="submitbutton(event)" style="background-color:aqua;" autocomplete="off">
+        <label for="Name">Name:</label><br>
+        <input type="search" maxlength="20" required minlength="6" id="Name"><br>
+
+        <label for="Password">Password:</label><br>
+        <input type="password" required id="Password"><br>
+
+        <label for="Confirm-pass">Confirm-pass:</label><br>
+        <input type="password" required id="Confirm-pass" ><br>
+
+        <label for="Age">Age:</label><br>
+        <input type="number" min="18" required max="24" id="Age" ><br>
+
+        <label for="Joining-Date">Joining Date:</label><br>
+        <input type="date" required id="Joining-Date"><br>
+
+        <input type="submit"  ></input>
+        <input type="reset">
+    </form>
+      <script>
+        function submitbutton(e){
+            try {
+            e.preventDefault()
+            var name= document.getElementById('Name').value;
+            var Password = document.getElementById('Password').value;
+            var Conform_password = document.getElementById('Confirm-pass').value;
+            var age = document.getElementById('Age').value;
+            var Joining_Date = document.getElementById('Joining-Date').value;
+            console.log(name,Password,age,Joining_Date);
+            
+            if (Password!==Conform_password){
+                alert("Password does not match")
+            }
+            else{
+                alert(`Thank you ${name} ! Do not forget your password ${Password}`)
+            }
+            } catch (error) {
+                alert(error.message)
+            }
+            
+        }
+      </script>
+</body>
+</html>
